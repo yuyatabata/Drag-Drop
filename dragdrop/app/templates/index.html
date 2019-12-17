@@ -1,0 +1,28 @@
+{% load static %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load widget_tweaks %}
+
+<body>
+
+
+
+
+<!-- アップロードした画像を表示 -->
+
+<!-- <div class="images-container">
+{% for img in images %}
+    <div class="image">
+        <a href="{% url 'app:images_detail' img.id %}">
+            <img src="{{ img.image.url }}" class="image-img">
+        </a>
+        <div class="image-info">
+            <a href="{% url 'app:images_category' category=img.category %}" class="category">{{ img.category }}</a>
+            <a href="{% url 'app:users_detail' img.user.id %}">@{{img.user}}</a>
+        </div>
+    </div>
+{% endfor %}
+</div> -->
+
+</body>
