@@ -4,7 +4,23 @@
 {% bootstrap_javascript jquery='full' %}
 {% load widget_tweaks %}
 
+<html>
+<head>
+    <title>DragDrop</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+
 <body>
+
+<form action="{% url 'app:index' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <tr>
+        <th>画像</th>
+        <th>{{ form.image }}</th>
+    </tr>
+    <button type="submit" class="btn">保存</button>
+</form>
+
 
 
 
