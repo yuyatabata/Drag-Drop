@@ -14,31 +14,29 @@
 <body>
 
 <div class="container">
-<form action="{% url 'app:index' %}" method="POST">{% csrf_token %}
+<form action="{% url 'app:index' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
     <h4>ドラッグエリア</h4>
     <div class="form-group row my-4">
         <div id="dragandrophandler" class="border col-lg-9">ここにファイルをドロップ{{ form.image }}</div>
     </div>
-<div class="form-group row my-4">
-    <label class="col-lg-2 col-form-label"><h4>{{ form.image }}</h4></label>
-    <!-- <div class="col-lg-8">
-        {{form.image}}
-    </div> -->
-</div>
+    <div class="form-group row my-4">
+        <label class="col-lg-2 col-form-label"><h4>{{ form.image }}</h4></label>
+        <!-- <div class="col-lg-8">
+            {{form.image}}
+        </div> -->
+    </div>
     <button type="submit" class="btn btn-primary">保存</button>
+    <div class="images-container">
+        <div class="image">
+            <img src="{{ image }}" class="image-img">
+        </div>
+    </div>    
 </form>
 </div>
 
 
 <!-- アップロードした画像を表示 -->
 
-<div class="images-container">
-{% for img in images %}
-    <div class="image">
-        <img src="{{ img.image }}" class="image-img">
-    </div>
-{% endfor %}
-</div>
 
 </body>
 
