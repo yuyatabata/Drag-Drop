@@ -1,8 +1,8 @@
 {% load static %}
 
-<!-- {% bootstrap_css %}
+{% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
-{% load widget_tweaks %} -->
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html>
@@ -12,11 +12,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
-
 <body>
-
 <div class="container">
-    <form action="" method="post">{% csrf_token %}
+    <form action="{% url 'app:index' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
         <div class="drop-zone" id="js-dropzone">
             <div class="overlay-area" id="js-overlay-area">
                 <p class="no-active" id="js-overlay-text">ここにドラッグ&ドロップしてください。</p>
@@ -24,16 +22,23 @@
             <p class="drop-zone-text">ファイルを選択するか、ドラッグ&ドロップしてください。</p>
             <label for="file_upload" class="select-file" id="js-select-file">
                 ファイルを選択してください
-                <input type="file" id="file_upload">
+                <input type="file" id="file_upload" >
             </label>
-            <div class="selected-file no-active" id="js-selected-file">
-            </div>
+            <div class="selected-file no-active" id="js-selected-file"></div>
         </div>
+    <button type="submit" class="btn btn-primary">サブミット</button>
     </form>
 </div>
 
-
 <!-- アップロードした画像を表示 -->
+
+<div class="images-container">
+{% for img in images %}
+    <div class="image">
+        <img src="{{ img.image.url }}" class="image-img">
+    </div>
+{% endfor %}
+</div>
 
 
 </body>
