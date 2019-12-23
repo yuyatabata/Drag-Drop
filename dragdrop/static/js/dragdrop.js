@@ -1,43 +1,41 @@
-var obj = $("#dragandrophandler");
-obj.on('dragenter', function (e) 
-{
-    e.stopPropagation();
+const dropzone = document.getElementById('js-dropzone');
+const overlayText = document.getElementById('js-overlay-text');
+const overlayArea = document.getElementById('js-overlay-area');
+const fileInput = document.getElementById('file_upload');
+const selectedFile = document.getElementById('js-selected-file');
+
+// ドロップ可能エリアに入った時
+dropzone.addEventListener('dragenter', () => {
+    overlayArea.classList.add('overlay');
+    overlayText.classList.add('overlay-text');
+    overlayText.classList.remove('no-active');
+});
+
+// ドロップ可能エリアを出た時
+overlayArea.addEventListener('dragleave', () => {
+    overlayArea.classList.remove('overlay');
+    overlayText.classList.remove('overlay-text');
+    overlayText.classList.add('no-active');
+});
+
+// ドロップ可能エリアにカーソルがある時
+overlayArea.addEventListener('dragover', (e) => {
     e.preventDefault();
-    $(this).css('border', '2px solid #0B85A1');
-
 });
-obj.on('dragover', function (e) 
-{
-     e.stopPropagation();
-     e.preventDefault();
-     $("#dragandrophandler").css('background-color', '#ffffe0');
-});
-obj.on('drop', function (e) 
-{
-     $(this).css('border', '2px dotted #0B85A1');
-     e.preventDefault();
-     var files = e.originalEvent.dataTransfer.files;
 
-     //We need to send dropped files to Server
-     $("#dropedfile").val(files[0].name);
-     $("#dragandrophandler").css('background-color', '#ffffff');
-
-});
-$(document).on('dragenter', function (e) 
-{
-    e.stopPropagation();
+// ファイルをドロップした時
+overlayArea.addEventListener('drop', (e) => {
     e.preventDefault();
-    $("#dragandrophandler").css('background-color', '#ffffff');
+    var fileName = e.dataTransfer.files[0].name;
+    selectedFile.innerText = fileName;
+    selectedFile.classList.remove('no-active');
+    overlayArea.classList.remove('overlay');
+    overlayText.classList.remove('overlay-text');
+    overlayText.classList.add('no-active');
+});
 
-});
-$(document).on('dragover', function (e) 
-{
-  e.stopPropagation();
-  e.preventDefault();
-  obj.css('border', '2px dotted #0B85A1');
-});
-$(document).on('drop', function (e) 
-{
-    e.stopPropagation();
-    e.preventDefault();
+fileInput.addEventListener('change', () => {
+    var fileName = fileInput.files[0].name;
+    selectedFile.classList.remove('no-active');
+    selectedFile.innerText = fileName;
 });
