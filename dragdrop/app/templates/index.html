@@ -15,18 +15,14 @@
 <body>
 <div class="container">
     <form action="{% url 'app:index' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-        <!-- <div class="drop-zone" id="js-dropzone">
-            <div class="overlay-area" id="js-overlay-area">
-                <p class="no-active" id="js-overlay-text">ここにドラッグ&ドロップしてください。</p>
+        <div id="drag-drop-area">
+            <div class="drag-drop-inside">
+                <p class="drag-drop-info">ここにファイルをドロップ</p>
+                <p>または</p>
+                <p class="drag-drop-buttons"><input id="fileInput" type="file" value="ファイルを選択" name="image"></p>
+                <button type="submit" class="btn btn-primary">サブミット</button
             </div>
-            <p class="drop-zone-text">ファイルを選択するか、ドラッグ&ドロップしてください。</p>
-            <label for="file_upload" class="select-file" id="js-select-file">
-                ファイルを選択してください -->
-                <input type="file" id="file_upload"  name="file_upload">
-            <!-- </label>
-            <div class="selected-file no-active" id="js-selected-file"></div>
-        </div> -->
-        <button type="submit" class="btn btn-primary">サブミット</button>
+        </div>
     </form>
 </div>
 

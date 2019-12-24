@@ -3,12 +3,12 @@
     display: none;
  }
 
-.drop-zone {
+.drag-drop-area {
 position: relative;
 width: 1000px;
 height: 300px;
 margin: 0 auto;
-background-color: #eeeeee;
+background-color: #1AA1FF;
 font-size: 20px;
 font-weight: 700;
 text-align: center;
@@ -35,9 +35,9 @@ text-align: center;
     color: #F7F7F7;
 }
 
-input {
+/* input {
     display: none;
-}
+} */
 
 .select-file {
     display: inline-block;
