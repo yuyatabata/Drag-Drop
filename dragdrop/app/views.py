@@ -6,7 +6,7 @@ from django.contrib import messages
 # Create your views here.
 def index(request):
     if request.method == "POST":
-        f = request.POST.get('file_upload')
+        f = request.FILES.get('file_upload')
         print("f:",f)
         print("FILES:",request.FILES)
         print("POST:",request.POST)
@@ -16,8 +16,9 @@ def index(request):
         if f != None:
             image = f.save(commit=False)
             image.save()
-            messages.success(request, "投稿が完了しました！")
-        return redirect('index.html')
+            messages.success("投稿が完了しました！")
+            images = Image.objects.all()
+        return redirect(request, '/', {'images':images})
     else:
         form = ImageForm()
     images = Image.objects.all()
