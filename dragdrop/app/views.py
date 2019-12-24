@@ -6,8 +6,11 @@ from django.contrib import messages
 # Create your views here.
 def index(request):
     if request.method == "POST":
-        print(request.POST)
         f = request.POST.get('file_upload')
+        print("f:",f)
+        print("FILES:",request.FILES)
+        print("POST:",request.POST)
+        print("path:",request.path)
         # form = ImageForm(request.POST, request.FILES)
         # if form.is_valid():
         if f != None:
