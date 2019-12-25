@@ -21,6 +21,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # /path/to/project_directory/static_file
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+#画像を保存するディレクトリ
+MEDIA_ROOT = os.path.join(BASE_DIR, '/')
+MEDIA_URL = '/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -128,4 +131,3 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-
