@@ -26,17 +26,18 @@
     </form>
 </div>
 
-<img src="{{ uploaded_file_url }}" class="image-img">
+<!-- <img src="{{ uploaded_file_url }}" class="image-img"> -->
 
 
 <!-- アップロードした画像を表示 -->
 
-<!-- <div class="images-container"> -->
-<!-- {% for img in images %} -->
-<!-- <div class="image">
-</div> -->
-<!-- {% endfor %} -->
-<!-- </div> -->
+<div class="images-container"> 
+{% for img in images %}
+<div class="image">
+    <img src="{{ img.image_f }}" class="image-img">
+</div>
+{% endfor %}
+</div>
 
 
 </body>

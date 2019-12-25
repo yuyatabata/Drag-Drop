@@ -20,16 +20,15 @@ def index(request):
             fs = FileSystemStorage()
             filename = fs.save(updata.name, updata)
             uploaded_file_url = fs.url(filename)
-            print(uploaded_file_url)
             # for chunk in updata.chunks():
             #     f.write(chunk)
             #     print("f",f)
             # f.close()
-            # img = Image()
-            # img.image_f = f
-            # print(img.image_f.url)
-            # images = img.objects.all().order_by("-created_at")
-        return render(request, 'index.html', {'uploaded_file_url':uploaded_file_url})
+            img = Image()
+            img.image_f = uploaded_file_url
+            print(img.image_f)
+            images = Image.objects.all().order_by("-created_at")
+        return render(request, 'index.html', {'images':images})
     else:
         # form = ImageForm()
         # images = Image.objects.all()
