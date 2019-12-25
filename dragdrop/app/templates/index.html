@@ -20,21 +20,23 @@
                 <p class="drag-drop-info">ここにファイルをドロップ</p>
                 <p>または</p>
                 <p class="drag-drop-buttons"><input id="fileInput" type="file" value="ファイルを選択" name="image"></p>
-                <button type="submit" class="btn btn-primary">サブミット</button
+                <button type="submit" class="btn btn-primary">サブミット</button>
             </div>
         </div>
     </form>
 </div>
 
+<img src="{{ uploaded_file_url }}" class="image-img">
+
+
 <!-- アップロードした画像を表示 -->
 
-<div class="images-container">
-{% for img in images %}
-    <div class="image">
-        <img src="{{ img.image.url }}" class="image-img">
-    </div>
-{% endfor %}
-</div>
+<!-- <div class="images-container"> -->
+<!-- {% for img in images %} -->
+<!-- <div class="image">
+</div> -->
+<!-- {% endfor %} -->
+<!-- </div> -->
 
 
 </body>
