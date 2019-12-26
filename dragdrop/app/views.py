@@ -26,11 +26,14 @@ def index(request):
             # f.close()
             img = Image()
             img.image_f = uploaded_file_url
-            print(img.image_f)
+            print("uploaded_file_url:",uploaded_file_url)
+            print("image_f:",img.image_f)
+            img.save()
             images = Image.objects.all().order_by("-created_at")
         return render(request, 'index.html', {'images':images})
     else:
         # form = ImageForm()
         # images = Image.objects.all()
+        images = Image.objects.all().order_by("-created_at")
         # return render(request, 'index.html', {'form':form ,'images':images})
-        return render(request, 'index.html')
+        return render(request, 'index.html', {'images':images})
