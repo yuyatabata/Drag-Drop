@@ -1,3 +1,9 @@
+.container {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #EFEFEF;
+}
 
 .no-active {
     display: none;
@@ -54,4 +60,14 @@ text-align: center;
 
 .select-file::hover {
     background-color: #136EB6;
+}
+
+.img-container {
+  max-width: 1140px;
+  padding-top: 20px;
+  background-color: #ffffff;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
